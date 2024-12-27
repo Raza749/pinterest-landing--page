@@ -110,13 +110,16 @@ function showTheCarts(){
 // Overlay cover on the screen
 function showCoverOnthePage(){
     let search = document.querySelector("#search");
-    let overlay = document.querySelector(".overlay");    
+    let overlay = document.querySelector(".overlay");   
+
     search.addEventListener("focus",(e)=>{
         overlay.style.display = "block";
     });
-    search.addEventListener("blur",(e)=>{
-        overlay.style.display = "none";
-    });
+    search.addEventListener("blur",function(e){
+        overlay.style.display = "none"
+    })
+
+    
 
     search.addEventListener("input",(e)=>{
         const filterArray = data.filter(obj => obj.name.toLocaleLowerCase().startsWith(search.value));
